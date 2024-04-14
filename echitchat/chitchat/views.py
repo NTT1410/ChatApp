@@ -162,7 +162,7 @@ class ConnectionViewSet(viewsets.ViewSet):
         return Response({"message": "Friend request rejected."}, status=status.HTTP_200_OK)
 
 
-class UserViewSet(viewsets.ViewSet, generics.CreateAPIView):
+class UserViewSet(viewsets.ViewSet, generics.CreateAPIView, generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     parser_classes = [parsers.MultiPartParser, parsers.JSONParser]
